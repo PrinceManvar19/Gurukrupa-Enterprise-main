@@ -76,7 +76,7 @@ export function TestimonialsSection({ mode = 'full' }: { mode?: TestimonialsMode
   }
 
   return (
-    <section id="testimonials" ref={sectionRef} className="relative py-32 overflow-hidden">
+    <section id="testimonials" ref={sectionRef} className="relative flex min-h-screen flex-col justify-center overflow-hidden py-16">
       {/* Premium Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary to-background" />
 
@@ -94,8 +94,8 @@ export function TestimonialsSection({ mode = 'full' }: { mode?: TestimonialsMode
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="mb-10 text-center"
         >
           <span className="text-sm text-accent font-medium tracking-wider uppercase mb-4 block">
             Testimonials
@@ -225,4 +225,3 @@ export function TestimonialsSection({ mode = 'full' }: { mode?: TestimonialsMode
     </section>
   )
 }
-

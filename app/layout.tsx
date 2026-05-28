@@ -5,6 +5,7 @@ import { Analytics } from '@vercel/analytics/next'
 import { ThemeProvider } from '@/components/theme-provider'
 import Header from '@/components/layout/Header'
 import { Footer } from '@/components/sections/footer'
+import { ParticleField } from '@/components/particle-field'
 
 import './globals.css'
 
@@ -67,7 +68,7 @@ export default function RootLayout({
       className="bg-background font-sans antialiased overflow-x-hidden"
       suppressHydrationWarning
     >
-      <body className={`${inter.variable}`}>
+      <body className={`${inter.variable} relative overflow-x-hidden`}>
         <Script id="theme-init" strategy="beforeInteractive">
           {`
             (function() {
@@ -84,9 +85,12 @@ export default function RootLayout({
         </Script>
 
         <ThemeProvider>
-          <Header />
-          {children}
-          <Footer />
+          <ParticleField />
+          <div className="relative z-[1]">
+            <Header />
+            {children}
+            <Footer />
+          </div>
         </ThemeProvider>
 
 

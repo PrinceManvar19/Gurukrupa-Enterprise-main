@@ -12,7 +12,7 @@ export function CTASection() {
     <section
       id="contact"
       ref={sectionRef}
-      className="relative py-32 overflow-hidden"
+      className="relative flex min-h-screen flex-col justify-center overflow-hidden py-16"
     >
       {/* Premium Animated Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary to-background" />
@@ -30,16 +30,16 @@ export function CTASection() {
 
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, scale: 0.97 }}
+          animate={isInView ? { opacity: 1, scale: 1 } : {}}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
           className="max-w-4xl mx-auto text-center"
         >
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ delay: 0.2, duration: 0.6 }}
+            transition={{ delay: 0.2, duration: 0.5, ease: 'easeOut' }}
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg glass-card text-sm text-muted-foreground mb-8 border border-accent/30"
           >
             <Sparkles className="w-4 h-4 text-accent" />
@@ -50,7 +50,7 @@ export function CTASection() {
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.3, duration: 0.8 }}
+            transition={{ delay: 0.3, duration: 0.5, ease: 'easeOut' }}
             className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 text-foreground"
           >
             Let&apos;s Build{' '}
@@ -63,7 +63,7 @@ export function CTASection() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.4, duration: 0.8 }}
+            transition={{ delay: 0.4, duration: 0.5, ease: 'easeOut' }}
             className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed"
           >
             Partner with us to create innovative solutions that drive growth, 
@@ -74,7 +74,7 @@ export function CTASection() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.5, duration: 0.8 }}
+            transition={{ delay: 0.5, duration: 0.5, ease: 'easeOut' }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <motion.a

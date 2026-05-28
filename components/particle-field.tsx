@@ -61,7 +61,7 @@ function FloatingOrb({ position, color, scale = 1 }: { position: [number, number
 
 export function ParticleField() {
   return (
-    <div className="absolute inset-0 z-0">
+    <div className="pointer-events-none fixed inset-0 z-0 opacity-70">
       <Canvas camera={{ position: [0, 0, 8], fov: 60 }}>
         <ambientLight intensity={0.5} />
         <ParticleSystem />

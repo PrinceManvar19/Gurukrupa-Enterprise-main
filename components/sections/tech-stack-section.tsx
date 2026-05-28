@@ -35,7 +35,7 @@ export function TechStackSection() {
   }, [])
 
   return (
-    <section id="tech-stack" ref={sectionRef} className="relative py-28 overflow-hidden">
+    <section id="tech-stack" ref={sectionRef} className="relative flex min-h-screen flex-col justify-center overflow-hidden py-16">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/40 to-background" />
       <div className="absolute top-1/4 right-1/4 w-[520px] h-[520px] bg-primary/10 rounded-full blur-[160px]" />
       <div className="absolute bottom-1/4 left-1/4 w-[420px] h-[420px] bg-accent/10 rounded-full blur-[140px]" />
@@ -45,8 +45,8 @@ export function TechStackSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="mb-10 text-center"
         >
           <span className="text-sm text-accent font-medium tracking-wider uppercase mb-4 block">
             Tech Stack
@@ -63,9 +63,9 @@ export function TechStackSection() {
           {items.map((item, idx) => (
             <motion.div
               key={item.key}
-              initial={{ opacity: 0, y: 26 }}
+              initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: idx * 0.06, duration: 0.65 }}
+              transition={{ delay: idx * 0.05, duration: 0.5, ease: 'easeOut' }}
               className="group"
             >
               <div className="glass-card rounded-xl p-7 card-hover relative overflow-hidden h-full">
@@ -103,7 +103,7 @@ export function TechStackSection() {
                     <motion.div
                       initial={{ width: 0 }}
                       animate={isInView ? { width: '100%' } : {}}
-                      transition={{ delay: 0.2 + idx * 0.06, duration: 0.9 }}
+                      transition={{ delay: 0.2 + idx * 0.05, duration: 0.5, ease: 'easeOut' }}
                       className={`h-full bg-gradient-to-r ${item.gradient} rounded`}
                     />
                   </div>
@@ -116,7 +116,7 @@ export function TechStackSection() {
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.2, duration: 0.7 }}
+          transition={{ delay: 0.2, duration: 0.5, ease: 'easeOut' }}
           className="mt-10 flex justify-center"
         >
           <a
@@ -130,4 +130,3 @@ export function TechStackSection() {
     </section>
   )
 }
-

@@ -103,7 +103,7 @@ export function ServicesSection({ mode = 'full' }: { mode?: ServicesMode }) {
     <section
       id="services"
       ref={sectionRef}
-      className="relative py-32 overflow-hidden"
+      className="relative flex min-h-screen flex-col justify-center overflow-hidden py-16"
     >
       {/* Premium Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary to-background" />
@@ -122,8 +122,8 @@ export function ServicesSection({ mode = 'full' }: { mode?: ServicesMode }) {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="mb-10 text-center"
         >
           <span className="text-sm text-accent font-medium tracking-wider uppercase mb-4 block">
             What We Do
@@ -143,9 +143,9 @@ export function ServicesSection({ mode = 'full' }: { mode?: ServicesMode }) {
           {servicesToRender.map((service, index) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: index * 0.1, duration: 0.6 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ delay: index * 0.1, duration: 0.5, ease: 'easeOut' }}
               className="group"
             >
               <div className="glass-card rounded-lg p-8 h-full card-hover relative overflow-hidden">

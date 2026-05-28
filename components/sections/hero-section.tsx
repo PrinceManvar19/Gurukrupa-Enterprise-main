@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowDown, ArrowRight, CheckCircle2, Workflow } from 'lucide-react'
-import { ParticleField } from '@/components/particle-field'
 
 const ease = [0.22, 1, 0.36, 1] as const
 const heroStats = [
@@ -117,14 +116,13 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen overflow-hidden pt-28 pb-16 md:pt-32"
+      className="relative flex min-h-[calc(100vh-64px)] flex-col justify-center overflow-hidden pb-10 pt-24"
     >
       <div className="absolute inset-0 gradient-mesh-bg" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(79,140,255,0.16),transparent_58%)]" />
-      <ParticleField />
       <div className="absolute inset-0 noise-overlay pointer-events-none" />
 
-      <div className="container relative z-10 mx-auto grid min-h-[calc(100vh-9rem)] items-center gap-12 px-6 lg:grid-cols-[0.95fr_1.05fr]">
+      <div className="container relative z-10 mx-auto grid items-center gap-12 px-6 lg:grid-cols-[0.95fr_1.05fr]">
         <div>
           <motion.div
             initial={{ opacity: 0, y: 14 }}

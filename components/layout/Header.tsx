@@ -43,6 +43,7 @@ const navItems = [
     ],
   },
   { name: 'Achievements', href: '/achievements' },
+  { name: 'Case Studies', href: '/case-studies' },
   { name: 'Partners', href: '/partners' },
   { name: 'Contact', href: '/contact' },
 ]
@@ -325,4 +326,3 @@ export default function Header() {
     </>
   )
 }
-

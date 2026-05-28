@@ -62,7 +62,7 @@ export function AchievementsSection({ mode = 'full' }: { mode?: AchievementsMode
     <section
       id="achievements"
       ref={sectionRef}
-      className="relative py-32 overflow-hidden"
+      className="relative flex min-h-screen flex-col justify-center overflow-hidden py-16"
     >
       {/* Premium Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary to-background" />
@@ -79,8 +79,8 @@ export function AchievementsSection({ mode = 'full' }: { mode?: AchievementsMode
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="mb-10 text-center"
         >
           <span className="text-sm text-accent font-medium tracking-wider uppercase mb-4 block">
             Our Journey
@@ -103,9 +103,9 @@ export function AchievementsSection({ mode = 'full' }: { mode?: AchievementsMode
           {achievementsToRender.map((achievement, index) => (
             <motion.div
               key={achievement.year}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+              initial={{ opacity: 0, x: 40 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ delay: index * 0.15, duration: 0.6 }}
+              transition={{ delay: index * 0.15, duration: 0.5, ease: 'easeOut' }}
               className={`relative flex items-center mb-12 ${
                 index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
               }`}
