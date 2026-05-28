@@ -73,15 +73,13 @@ export function LeadInquiryForm({ compact = false }: { compact?: boolean }) {
                 <option>Follow-up.io</option>
                 <option>Scratch DIGI</option>
                 <option>Mob Order</option>
-                <option>CriZone</option>
+                <option>Election Data Extractor</option>
               </optgroup>
               <optgroup label="Services">
-                <option>React.js Development</option>
-                <option>React Native Development</option>
-                <option>Node.js Development</option>
-                <option>AI Agent Development</option>
-                <option>Mobile App Development</option>
                 <option>Web App Development</option>
+                <option>Mobile App Development</option>
+                <option>AI & Automation</option>
+                <option>Enterprise Backend & APIs</option>
                 <option>IoT / Automation</option>
               </optgroup>
             </select>

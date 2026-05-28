@@ -5,8 +5,8 @@ import { LeadInquiryForm } from '@/components/sections/lead-inquiry-form'
 const contactCards = [
   {
     label: 'Email',
-    value: 'gurukrupaenterprise247@gmail.com',
-    href: 'mailto:gurukrupaenterprise247@gmail.com',
+    value: 'hello@gurukrupaenterprise.com',
+    href: 'mailto:hello@gurukrupaenterprise.com',
     icon: Mail,
   },
   {
@@ -17,7 +17,7 @@ const contactCards = [
   },
   {
     label: 'Location',
-    value: 'India, global delivery',
+    value: 'Ahmedabad, Gujarat, India',
     href: undefined,
     icon: MapPin,
   },

@@ -16,11 +16,12 @@ export function AboutSnippet() {
             About Us
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mb-5 text-foreground">
-            Pioneering <span className="gradient-text">Digital Excellence</span>
+            Built in Ahmedabad. <span className="gradient-text">Deployed across India.</span>
           </h2>
           <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
-            For over a decade, Gurukrupa Enterprise has been at the forefront of technological innovation,
-            delivering transformative solutions that empower businesses to thrive in the digital age.
+            Gurukrupa Enterprise is a software product and custom development company based in Ahmedabad, Gujarat.
+            We build and operate digital systems for manufacturing, retail, infrastructure, and enterprise teams
+            through our SWAS delivery model.
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row gap-3">

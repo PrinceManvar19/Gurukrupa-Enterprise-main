@@ -3,35 +3,35 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { ScrollReveal } from '@/components/ScrollReveal'
-import { Code2, Palette, LineChart, Shield, Cpu, Cloud, Zap } from 'lucide-react'
+import { Code2, Palette, Shield, Cpu, Cloud, Zap, Smartphone } from 'lucide-react'
 
 const services = [
   {
     icon: Code2,
-    title: 'React.js Development',
-    description: 'Enterprise-grade web applications with component-driven architecture and performance tuning.',
-    features: ['UI Engineering', 'SPA/SSR', 'Enterprise Integrations'],
+    title: 'Web App Development',
+    description: 'Business web platforms, dashboards, portals, and workflow systems built for daily operations.',
+    features: ['Dashboards', 'Portals', 'Enterprise Integrations'],
     gradient: 'from-primary to-accent',
   },
   {
-    icon: Code2,
-    title: 'React Native Development',
-    description: 'Cross-platform mobile apps optimized for smooth UX, reliability, and maintainable codebases.',
+    icon: Smartphone,
+    title: 'Mobile App Development',
+    description: 'Reliable Android, iOS, and cross-platform apps for teams, customers, and field workflows.',
     features: ['iOS/Android', 'Offline-ready', 'App Performance'],
     gradient: 'from-accent to-primary',
   },
   {
-    icon: Code2,
-    title: 'Node.js Development',
-    description: 'Scalable backend services and APIs for modern enterprise systems and automation workflows.',
-    features: ['REST/GraphQL', 'Microservices', 'Security Practices'],
+    icon: Cpu,
+    title: 'AI & Automation',
+    description: 'AI-assisted workflows, data extraction, reminders, and operational automation that reduce manual effort.',
+    features: ['AI Agents', 'Data Processing', 'Workflow Automation'],
     gradient: 'from-primary to-accent',
   },
   {
     icon: Shield,
-    title: 'Android App Development',
-    description: 'Robust Android applications built with secure flows, scalable architecture, and clean delivery.',
-    features: ['Native UX', 'Secure Auth', 'Device Compatibility'],
+    title: 'Enterprise Backend & APIs',
+    description: 'Secure backend systems, integrations, and APIs that connect apps, teams, and business data.',
+    features: ['REST/GraphQL', 'Secure Auth', 'System Integrations'],
     gradient: 'from-accent to-primary',
   },
   {

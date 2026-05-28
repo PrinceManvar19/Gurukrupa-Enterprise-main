@@ -4,22 +4,16 @@ import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { ScrollReveal } from '@/components/ScrollReveal'
 
-const partners = [
-  { name: 'TechCorp', initials: 'TC' },
-  { name: 'Innovate Inc', initials: 'II' },
-  { name: 'Future Labs', initials: 'FL' },
-  { name: 'Digital Edge', initials: 'DE' },
-  { name: 'Cloud Nine', initials: 'CN' },
-  { name: 'Smart Systems', initials: 'SS' },
-  { name: 'Next Wave', initials: 'NW' },
-  { name: 'Prime Tech', initials: 'PT' },
-  { name: 'Elite Solutions', initials: 'ES' },
-  { name: 'Global Dynamics', initials: 'GD' },
-  { name: 'Apex Industries', initials: 'AI' },
-  { name: 'Quantum Labs', initials: 'QL' },
+const industries = [
+  'Manufacturing',
+  'Retail',
+  'Infrastructure',
+  'Distribution',
+  'Construction',
+  'Corporate',
 ]
 
-function PartnerLogo({ name, initials, index }: { name: string; initials: string; index: number }) {
+function IndustryPill({ name, index }: { name: string; index: number }) {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.8 }}
@@ -28,19 +22,11 @@ function PartnerLogo({ name, initials, index }: { name: string; initials: string
       viewport={{ once: true }}
       className="group relative"
     >
-      <div className="glass-card rounded-lg p-8 flex items-center justify-center aspect-[3/2] card-hover cursor-pointer relative overflow-hidden">
-        {/* Glow Effect on Hover */}
+      <div className="glass-card rounded-lg p-6 flex min-h-28 items-center justify-center card-hover relative overflow-hidden">
         <div className="absolute -inset-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-primary/20 to-accent/20 blur-xl" />
-        
-        {/* Logo Placeholder */}
-        <div className="relative z-10 flex flex-col items-center gap-2">
-          <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center text-2xl font-bold text-foreground group-hover:from-primary group-hover:to-accent group-hover:text-white transition-all duration-500 border border-accent/20 group-hover:border-transparent">
-            {initials}
-          </div>
-          <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors font-medium">
-            {name}
-          </span>
-        </div>
+        <span className="relative z-10 rounded-full border border-accent/25 bg-accent/10 px-4 py-2 text-sm font-semibold text-foreground transition-colors group-hover:border-accent/45">
+          {name}
+        </span>
       </div>
     </motion.div>
   )
@@ -52,7 +38,6 @@ export function PartnersSection({ mode = 'full' }: { mode?: PartnersMode }) {
   const sectionRef = useRef<HTMLElement>(null)
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' })
   const isTeaser = mode === 'teaser'
-  const teaserPartners = partners.slice(0, 6)
 
   return (
     <section
@@ -78,22 +63,19 @@ export function PartnersSection({ mode = 'full' }: { mode?: PartnersMode }) {
             Trusted By
           </span>
           <h2 className={isTeaser ? 'text-3xl md:text-5xl font-bold text-foreground' : 'text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground'}>
-            Our Valued{' '}
-            <span className="gradient-text">Partners</span>
+            Trusted By Teams{' '}
+            <span className="gradient-text">Like Yours</span>
           </h2>
           <p data-partners-description className="text-muted-foreground text-lg max-w-3xl mx-auto leading-relaxed">
-            We&apos;re proud to collaborate with industry-leading organizations who trust us 
-            to deliver exceptional results.
+            Delivered for teams in manufacturing, retail, infrastructure, and enterprise operations across Gujarat and beyond.
           </p>
         </ScrollReveal>
 
-        {/* Partners Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
-          {(isTeaser ? teaserPartners : partners).map((partner, index) => (
-            <ScrollReveal key={partner.name} delay={index * 0.05} direction="scale">
-            <PartnerLogo
-              name={partner.name}
-              initials={partner.initials}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          {industries.map((industry, index) => (
+            <ScrollReveal key={industry} delay={index * 0.05} direction="scale">
+            <IndustryPill
+              name={industry}
               index={index}
             />
             </ScrollReveal>
@@ -107,7 +89,7 @@ export function PartnersSection({ mode = 'full' }: { mode?: PartnersMode }) {
               href="/partners"
               className="px-8 py-4 rounded-lg btn-premium text-primary-foreground text-lg font-medium shadow-[0_10px_24px_rgba(30,58,138,0.18)]"
             >
-              View All Partners
+              View All Industries
             </a>
           </div>
         ) : (
@@ -123,16 +105,16 @@ export function PartnersSection({ mode = 'full' }: { mode?: PartnersMode }) {
 
             <div className="grid md:grid-cols-3 gap-8 text-center">
               <div>
-                <div className="text-4xl md:text-5xl font-bold gradient-text mb-2">98%</div>
-                <p className="text-muted-foreground">Client Retention Rate</p>
+                <div className="text-4xl md:text-5xl font-bold gradient-text mb-2">6</div>
+                <p className="text-muted-foreground">Core Product Areas</p>
               </div>
               <div>
-                <div className="text-4xl md:text-5xl font-bold gradient-text mb-2">15+</div>
-                <p className="text-muted-foreground">Countries Served</p>
+                <div className="text-4xl md:text-5xl font-bold gradient-text mb-2">4</div>
+                <p className="text-muted-foreground">Delivery Phases</p>
               </div>
               <div>
-                <div className="text-4xl md:text-5xl font-bold gradient-text mb-2">24/7</div>
-                <p className="text-muted-foreground">Support Available</p>
+                <div className="text-4xl md:text-5xl font-bold gradient-text mb-2">100%</div>
+                <p className="text-muted-foreground">SWAS Delivery Mindset</p>
               </div>
             </div>
           </motion.div>

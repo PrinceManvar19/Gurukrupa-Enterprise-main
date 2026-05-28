@@ -44,7 +44,7 @@ export function CTASection() {
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg glass-card text-sm text-muted-foreground mb-8 border border-accent/30"
           >
             <Sparkles className="w-4 h-4 text-accent" />
-            <span>Ready to Transform?</span>
+            <span>Ready to Build?</span>
           </motion.div>
 
           {/* Heading */}
@@ -54,10 +54,7 @@ export function CTASection() {
             transition={{ delay: 0.3, duration: 0.5, ease: 'easeOut' }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground"
           >
-            Let&apos;s Build{' '}
-            <span className="gradient-text">Something</span>
-            <br />
-            <span className="gradient-text-pink">Extraordinary</span>
+            Have a <span className="gradient-text">project in mind?</span>
           </motion.h2>
 
           {/* Description */}
@@ -67,8 +64,7 @@ export function CTASection() {
             transition={{ delay: 0.4, duration: 0.5, ease: 'easeOut' }}
             className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed"
           >
-            Partner with us to create innovative solutions that drive growth, 
-            inspire innovation, and deliver lasting impact for your business.
+            Share your requirement and we&apos;ll send back a clear build plan within 24 hours.
           </motion.p>
 
           {/* CTA Buttons */}

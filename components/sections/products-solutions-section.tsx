@@ -25,7 +25,7 @@ type Product = {
 const products: Product[] = [
   {
     name: 'Go Digital Chat',
-    category: 'AI Communication',
+    category: 'WhatsApp Business API',
     url: 'https://godigitalchat.com/',
     logo: 'https://gurukrupaenterprise.vercel.app/logos/go-digital-chat.png',
     description: 'AI-powered communication and customer engagement platform for businesses.',
@@ -106,7 +106,7 @@ export function ProductsSolutionsSection({ mode = 'full' }: { mode?: ProductsMod
     <section
       id="products"
       ref={sectionRef}
-      className={`relative flex min-h-screen flex-col justify-center overflow-hidden ${
+      className={`products-showcase-section relative flex min-h-screen flex-col justify-center overflow-hidden ${
         isTeaser ? 'py-16' : 'scroll-mt-28 py-16'
       }`}
     >
@@ -130,7 +130,7 @@ export function ProductsSolutionsSection({ mode = 'full' }: { mode?: ProductsMod
         </div>
         </ScrollReveal>
 
-        <div className={isTeaser ? 'grid gap-6 md:grid-cols-2 lg:grid-cols-3' : 'grid auto-rows-fr gap-4 md:grid-cols-2 lg:grid-cols-3'}>
+        <div className={isTeaser ? 'products-app-grid grid gap-6 md:grid-cols-2 lg:grid-cols-3' : 'grid auto-rows-fr gap-4 md:grid-cols-2 lg:grid-cols-3'}>
           {visibleProducts.map((product, index) => {
             const Icon = product.icon
             const featured = !isTeaser && index < 3
@@ -139,29 +139,23 @@ export function ProductsSolutionsSection({ mode = 'full' }: { mode?: ProductsMod
             const tint = product.theme?.tint ?? 'rgba(26, 86, 219, 0.08)'
             const border = product.theme?.border ?? 'rgba(26, 86, 219, 0.2)'
 
-            if (!isTeaser) {
+            if (isTeaser) {
               return (
                 <ScrollReveal key={product.name} delay={index * 0.1} direction="up">
                 <motion.div
                   initial={{ opacity: 0, y: 40 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: index * 0.1, duration: 0.5, ease: 'easeOut' }}
-                  className="group flex min-h-0 flex-col rounded-2xl border border-black/5 p-5 shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg"
+                  className="product-app-card group flex min-h-0 flex-col rounded-[20px] border border-black/5 p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
                   style={{ background: product.theme?.background ?? '#ffffff' }}
                 >
-                  <div className="flex items-start justify-between gap-3">
-                    <div className="flex min-w-0 items-center gap-3">
-                      <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-[10px] bg-white/80 shadow-sm">
+                  <div className="mb-7 flex items-start justify-between gap-3">
+                    <div className="flex h-[72px] w-[72px] shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-white shadow-sm">
                         {product.logo ? (
-                          <img src={product.logo} alt={`${product.name} logo`} className="h-12 w-12 object-contain" />
+                          <img src={product.logo} alt={`${product.name} logo`} className="h-[72px] w-[72px] object-contain" />
                         ) : (
-                          <Icon className="h-6 w-6" style={{ color: accent }} />
+                          <Icon className="h-8 w-8" style={{ color: accent }} />
                         )}
-                      </div>
-                      <div className="min-w-0">
-                        <h3 className="truncate text-base font-semibold leading-tight text-slate-950">{product.name}</h3>
-                        <p className="mt-0.5 truncate text-[11px] font-medium text-slate-600">{product.category}</p>
-                      </div>
                     </div>
                     {product.theme?.menu === 'gst' ? (
                       <span
@@ -175,24 +169,30 @@ export function ProductsSolutionsSection({ mode = 'full' }: { mode?: ProductsMod
                     ) : null}
                   </div>
 
-                  <div className="mt-2 flex min-h-[24px] items-center">
-                    {featured ? (
+                  <div>
+                    <div className="flex min-w-0 items-center gap-2">
+                      <h3 className="truncate text-xl font-bold leading-tight text-slate-950">{product.name}</h3>
                       <span
-                        className="rounded-full px-2.5 py-[3px] text-[10px] font-semibold text-white"
+                        className="shrink-0 rounded-full px-2.5 py-[3px] text-[10px] font-semibold text-white"
                         style={{ backgroundColor: accent }}
                       >
                         Featured
                       </span>
-                    ) : null}
+                    </div>
+                    <p className="mt-1 text-sm font-medium text-slate-700">{product.category}</p>
                   </div>
 
-                  <p className="mt-2 line-clamp-2 min-h-[36px] text-xs leading-[18px] text-slate-700">{product.description}</p>
+                  <div className="my-6 h-2 rounded-full bg-white/70">
+                    <div className="h-full w-3/4 rounded-full" style={{ backgroundColor: accent }} />
+                  </div>
 
-                  <div className="mt-2 flex flex-wrap gap-1.5">
+                  <p className="min-h-[48px] text-sm leading-6 text-slate-700">{product.description}</p>
+
+                  <div className="mt-5 flex flex-wrap gap-2">
                     {product.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="rounded-full border px-2 py-[2px] text-[10px] font-semibold"
+                        className="rounded-full border px-3 py-1 text-xs font-semibold"
                         style={{ borderColor: border, backgroundColor: tint, color: accent }}
                       >
                         {tag}
@@ -200,14 +200,14 @@ export function ProductsSolutionsSection({ mode = 'full' }: { mode?: ProductsMod
                     ))}
                   </div>
 
-                  <div className="mt-auto flex gap-2 pt-3">
+                  <div className="mt-auto grid grid-cols-[1fr_auto] gap-2 pt-6">
                     {product.url ? (
                       <>
                         <a
                           href={href}
                           target="_blank"
                           rel="noreferrer"
-                          className="inline-flex h-[34px] flex-1 items-center justify-center rounded-lg px-3 text-xs font-semibold text-white"
+                          className="inline-flex h-11 items-center justify-center rounded-xl px-4 text-sm font-semibold text-white"
                           style={{ backgroundColor: accent }}
                         >
                           Visit Product
@@ -215,10 +215,10 @@ export function ProductsSolutionsSection({ mode = 'full' }: { mode?: ProductsMod
                         </a>
                         <a
                           href="/contact"
-                          className="inline-flex h-[34px] flex-1 items-center justify-center rounded-lg border px-3 text-xs font-semibold"
+                          className="inline-flex h-11 items-center justify-center rounded-xl border bg-white/45 px-4 text-sm font-semibold"
                           style={{ borderColor: accent, color: accent }}
                         >
-                          Request a Demo
+                          Demo
                         </a>
                       </>
                     ) : (

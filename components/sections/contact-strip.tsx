@@ -28,10 +28,10 @@ export function ContactStrip() {
                 <span className="text-sm text-muted-foreground">Email</span>
               </div>
               <a
-                href="mailto:gurukrupaenterprise247@gmail.com"
+                href="mailto:hello@gurukrupaenterprise.com"
                 className="text-foreground hover:gradient-text transition-all duration-300 text-sm md:text-base break-words"
               >
-                gurukrupaenterprise247@gmail.com
+                hello@gurukrupaenterprise.com
               </a>
             </motion.div>
 
@@ -59,7 +59,7 @@ export function ContactStrip() {
                 <MapPin className="w-5 h-5 text-accent" />
                 <span className="text-sm text-muted-foreground">Location</span>
               </div>
-              <span className="text-foreground text-sm md:text-base">Global Presence</span>
+              <span className="text-foreground text-sm md:text-base">Ahmedabad, Gujarat, India</span>
             </motion.div>
           </div>
 

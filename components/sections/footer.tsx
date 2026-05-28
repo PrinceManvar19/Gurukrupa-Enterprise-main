@@ -2,19 +2,16 @@
 
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { Linkedin, Twitter, Instagram, Github, Mail, MapPin, Phone } from 'lucide-react'
+import { Mail, MapPin, Phone } from 'lucide-react'
 
 import footerDarkLogo from '@/Logos/Dark logo 1.png'
 import footerLightLogo from '@/Logos/Light logo 1.png'
 
-const socialLinks = [
-  { icon: Linkedin, href: '#', label: 'LinkedIn' },
-  { icon: Twitter, href: '#', label: 'Twitter' },
-  { icon: Instagram, href: '#', label: 'Instagram' },
-  { icon: Github, href: '#', label: 'GitHub' },
-]
-
 const quickLinks = [
+  { name: 'Products', href: '/products' },
+  { name: 'Case Studies', href: '/case-studies' },
+  { name: 'Services', href: '/services' },
+  { name: 'Solutions', href: '/solutions' },
   { name: 'About', href: '/about' },
   { name: 'Achievements', href: '/achievements' },
   { name: 'Partners', href: '/partners' },
@@ -78,22 +75,6 @@ export function Footer() {
               Modern software, AI workflows, and scalable digital products for
               teams that want clean execution and durable systems.
             </p>
-            
-            {/* Social Links */}
-            <div className="flex gap-3">
-              {socialLinks.map((social) => (
-                <motion.a
-                  key={social.label}
-                  href={social.href}
-                  className="w-10 h-10 rounded-full glass-card flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-accent/50 transition-all duration-300"
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  aria-label={social.label}
-                >
-                  <social.icon className="w-4 h-4" />
-                </motion.a>
-              ))}
-            </div>
           </div>
 
           {/* Quick Links */}
@@ -121,8 +102,8 @@ export function Footer() {
                 <Mail className="w-5 h-5 text-accent mt-0.5" />
                 <div>
                   <p className="text-sm text-muted-foreground">Email</p>
-                  <a href="mailto:gurukrupaenterprise247@gmail.com" className="text-sm text-foreground hover:text-accent transition-colors">
-                    gurukrupaenterprise247@gmail.com
+                  <a href="mailto:hello@gurukrupaenterprise.com" className="text-sm text-foreground hover:text-accent transition-colors">
+                    hello@gurukrupaenterprise.com
                   </a>
                 </div>
               </li>
@@ -139,7 +120,7 @@ export function Footer() {
                 <MapPin className="w-5 h-5 text-accent mt-0.5" />
                 <div>
                   <p className="text-sm text-muted-foreground">Location</p>
-                  <span className="text-sm text-foreground">Global Presence</span>
+                  <span className="text-sm text-foreground">Ahmedabad, Gujarat, India</span>
                 </div>
               </li>
             </ul>
@@ -152,14 +133,7 @@ export function Footer() {
             <p className="text-sm text-muted-foreground">
               {currentYear} Gurukrupa Enterprise. All rights reserved.
             </p>
-            <div className="flex gap-6">
-              <a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">
-                Privacy Policy
-              </a>
-              <a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">
-                Terms of Service
-              </a>
-            </div>
+            <span className="text-sm text-muted-foreground">Software WITH a Service</span>
           </div>
         </div>
       </div>

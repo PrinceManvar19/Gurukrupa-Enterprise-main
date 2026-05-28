@@ -296,14 +296,127 @@ section > .bg-radial-gradient {
 }
 
 .homepage > .hero-section {
-  height: 100vh;
-  min-height: 100vh;
-  padding-top: 64px;
+  height: calc(100vh - 64px);
+  min-height: 0;
+  margin-top: 64px;
+  padding: 0 80px;
+  align-items: center;
   overflow: hidden;
 }
 
 .homepage > section > .container {
   width: 100%;
+}
+
+.homepage > .hero-section .hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 48px;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.homepage > .hero-section .hero-copy,
+.homepage > .hero-section .hero-inner > .relative {
+  min-width: 0;
+}
+
+.homepage > .hero-section .hero-eyebrow {
+  margin-bottom: 12px;
+}
+
+.homepage > .hero-section .hero-title {
+  margin-bottom: 20px;
+  font-size: clamp(40px, 4.5vw, 58px);
+  line-height: 1.08;
+  letter-spacing: -2px;
+}
+
+.homepage > .hero-section .hero-subtext {
+  max-width: 520px;
+  margin-top: 0;
+  margin-bottom: 28px;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.homepage > .hero-section .hero-stats {
+  display: flex;
+  gap: 12px;
+  max-width: 620px;
+  margin: 20px 0;
+}
+
+.homepage > .hero-section .stat-box {
+  flex: 1;
+  min-width: 0;
+  padding: 14px 18px;
+}
+
+.homepage > .hero-section .stat-num {
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.homepage > .hero-section .stat-label {
+  font-size: 10px;
+  line-height: 1.25;
+}
+
+.homepage > .hero-section .hero-btns {
+  gap: 10px;
+  margin: 0;
+}
+
+.homepage > .hero-section .hero-swas-card {
+  padding: 32px;
+  font-size: 14px;
+}
+
+.homepage > .hero-section .hero-swas-title {
+  font-size: 22px;
+  line-height: 1.35;
+}
+
+.homepage > .hero-section .swas-card {
+  position: relative;
+  min-width: 0;
+  border-radius: 14px;
+  border: 1px solid color-mix(in srgb, var(--brand-green) 20%, var(--border-color));
+  background: color-mix(in srgb, var(--card-bg) 76%, transparent);
+  padding: 32px;
+  font-size: 14px;
+  line-height: 1.35;
+  overflow: hidden;
+}
+
+.homepage > .hero-section .swas-card span {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.homepage > .hero-section .swas-card strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 22px;
+  line-height: 1.35;
+  color: var(--foreground);
+}
+
+.homepage > .hero-section .swas-card p {
+  margin-top: 6px;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--muted-foreground);
 }
 
 .homepage > section h2 {
@@ -329,17 +442,13 @@ section > .bg-radial-gradient {
   padding: 14px;
 }
 
-.homepage #products .grid {
+.homepage #products .products-app-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
+  gap: 20px;
 }
 
-.homepage #products .grid > * > * {
-  padding: 18px;
-}
-
-.homepage #products p {
-  font-size: 13px;
+.homepage #products .product-app-card {
+  min-height: 420px;
 }
 
 .homepage #services .grid {
@@ -363,21 +472,127 @@ section > .bg-radial-gradient {
   line-height: 1.45;
 }
 
-.homepage #tech-stack .grid {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 12px;
-  overflow-x: auto;
-  padding-bottom: 8px;
+.homepage #tech-stack .tech-bento-heading,
+.homepage #achievements .journey-heading {
+  font-size: clamp(24px, 3vw, 36px);
+  line-height: 1.12;
 }
 
-.homepage #tech-stack .glass-card {
-  height: 36px;
-  min-width: max-content;
-  border-radius: 20px;
+.homepage #tech-stack .tech-bento-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.homepage #tech-stack .tech-bento-card {
   border: 1px solid #e5ebf5;
-  padding: 0 14px;
-  box-shadow: none;
+  border-radius: 12px;
+  background: #ffffff;
+  padding: 20px;
+  text-align: center;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.homepage #tech-stack .tech-bento-card:hover {
+  transform: translateY(-2px);
+  border-color: #1a56db;
+  box-shadow: 0 4px 20px rgba(26, 86, 219, 0.08);
+}
+
+.homepage #tech-stack .tech-bento-card h3 {
+  margin-top: 10px;
+  color: #0b1628;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.homepage #tech-stack .tech-bento-card p {
+  margin-top: 3px;
+  color: #6b7280;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.homepage #case-studies .case-metrics-heading {
+  font-size: clamp(22px, 2.5vw, 32px);
+  line-height: 1.15;
+}
+
+.homepage #case-studies .case-metric-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border: 1px solid #e5ebf5;
+  border-radius: 16px;
+  background: #ffffff;
+  padding: 24px 28px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.homepage #case-studies .case-metric-card:hover {
+  transform: translateY(-2px);
+  border-color: #1a56db;
+  box-shadow: 0 4px 20px rgba(26, 86, 219, 0.08);
+}
+
+.homepage #case-studies .case-metric-main {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  align-items: center;
+  gap: 14px;
+}
+
+.homepage #case-studies .case-metric-main span {
+  flex-shrink: 0;
+  border-radius: 999px;
+  background: #1a56db;
+  color: #ffffff;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.homepage #case-studies .case-metric-main h3 {
+  color: #0b1628;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.homepage #case-studies .case-metric-boxes {
+  display: flex;
+  gap: 10px;
+}
+
+.homepage #case-studies .case-metric-box {
+  min-width: 100px;
+  border-radius: 10px;
+  background: #f0f5ff;
+  padding: 12px 16px;
+  text-align: center;
+}
+
+.homepage #case-studies .case-metric-box strong {
+  display: block;
+  color: #1a56db;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.homepage #case-studies .case-metric-box small {
+  display: block;
+  margin-top: 5px;
+  color: #6b7280;
+  font-size: 11px;
+  line-height: 1.25;
+}
+
+.homepage #case-studies .case-metric-arrow {
+  height: 22px;
+  width: 22px;
+  flex-shrink: 0;
+  color: #1a56db;
 }
 
 .homepage #why-choose-us .grid {
@@ -401,12 +616,71 @@ section > .bg-radial-gradient {
   line-height: 1.45;
 }
 
-@media (min-width: 768px) {
-  .homepage #achievements .homepage-achievements-row {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 32px;
-  }
+.homepage #achievements .journey-timeline {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.homepage #achievements .journey-line {
+  position: absolute;
+  left: 9%;
+  right: 9%;
+  top: 42px;
+  height: 2px;
+  background: linear-gradient(to right, #1a56db, #3b82f6);
+}
+
+.homepage #achievements .journey-item-wrap {
+  flex: 1;
+}
+
+.homepage #achievements .journey-item {
+  position: relative;
+  display: flex;
+  min-height: 220px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.homepage #achievements .journey-year {
+  border-radius: 20px;
+  background: #0b1628;
+  color: #ffffff;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.homepage #achievements .journey-dot {
+  position: relative;
+  z-index: 1;
+  margin-top: 10px;
+  width: 14px;
+  height: 14px;
+  border: 3px solid #ffffff;
+  border-radius: 999px;
+  background: #1a56db;
+  box-shadow: 0 0 0 3px #1a56db;
+}
+
+.homepage #achievements .journey-item h3 {
+  margin-top: 16px;
+  max-width: 220px;
+  color: #0b1628;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.homepage #achievements .journey-item p {
+  margin-top: 8px;
+  max-width: 200px;
+  color: #6b7280;
+  font-size: 13px;
+  line-height: 1.6;
 }
 
 @media (max-width: 767px) {
@@ -414,23 +688,67 @@ section > .bg-radial-gradient {
     padding: 76px 18px 28px;
   }
 
+  .homepage > .hero-section {
+    height: auto;
+    min-height: calc(100vh - 64px);
+    padding: 28px 18px;
+  }
+
+  .homepage > .hero-section .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    height: auto;
+  }
+
+  .homepage > .hero-section .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .homepage #partners .grid,
-  .homepage #products .grid,
+  .homepage #products .products-app-grid,
   .homepage #services .grid,
   .homepage #why-choose-us .grid {
     grid-template-columns: 1fr;
   }
 
-  .homepage #tech-stack .grid {
-    display: flex;
-    overflow-x: auto;
-    padding-bottom: 8px;
-    scroll-snap-type: x mandatory;
+  .homepage #tech-stack .tech-bento-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .homepage #tech-stack .grid > * {
-    min-width: 78vw;
-    scroll-snap-align: start;
+  .homepage #case-studies .case-metric-card,
+  .homepage #case-studies .case-metric-main,
+  .homepage #case-studies .case-metric-boxes {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .homepage #case-studies .case-metric-boxes {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .homepage #case-studies .case-metric-box {
+    min-width: 0;
+    padding: 10px 8px;
+  }
+
+  .homepage #achievements .journey-timeline {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .homepage #achievements .journey-line {
+    bottom: 0;
+    left: 50%;
+    right: auto;
+    top: 42px;
+    width: 2px;
+    height: auto;
+  }
+
+  .homepage #achievements .journey-item {
+    min-height: 0;
   }
 }
 
