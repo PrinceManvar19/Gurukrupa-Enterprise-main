@@ -219,7 +219,7 @@ export function HeroSection() {
                 transition={{ duration: 0.45, ease }}
               >
                 <motion.div
-                  className="absolute left-5 right-5 top-1/2 h-[2px] rounded-full bg-primary"
+                  className="absolute left-5 right-5 top-1/2 h-0.5 rounded-full bg-primary"
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: animationPhase !== 'saas' ? 1 : 0 }}
                   transition={{ duration: 0.45, ease }}
