@@ -2,6 +2,7 @@
 
 import { useMemo, useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { ScrollReveal } from '@/components/ScrollReveal'
 import {
   Cpu,
   Code2,
@@ -42,74 +43,37 @@ export function TechStackSection() {
       <div className="absolute inset-0 noise-overlay pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="mb-10 text-center"
+        <ScrollReveal direction="up" className="mb-8 text-center">
+        <div
         >
           <span className="text-sm text-accent font-medium tracking-wider uppercase mb-4 block">
             Tech Stack
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground">
+          <h2 className="mb-4 text-3xl font-bold text-foreground md:text-5xl">
             Modern engineering for <span className="gradient-text">enterprise</span> delivery
           </h2>
-          <p className="text-muted-foreground text-lg max-w-3xl mx-auto leading-relaxed">
+          <p className="mx-auto max-w-3xl text-sm leading-relaxed text-muted-foreground md:text-base">
             Built with the technologies that power automation, AI, mobile experiences, and scalable web platforms.
           </p>
-        </motion.div>
+        </div>
+        </ScrollReveal>
 
         <div className="grid md:grid-cols-3 gap-6">
           {items.map((item, idx) => (
+            <ScrollReveal key={item.key} delay={idx * 0.05} direction="up" className="group">
             <motion.div
-              key={item.key}
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: idx * 0.05, duration: 0.5, ease: 'easeOut' }}
-              className="group"
             >
-              <div className="glass-card rounded-xl p-7 card-hover relative overflow-hidden h-full">
-                <div
-                  className={`absolute inset-0 bg-gradient-to-r ${item.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-500`}
-                />
-                <div
-                  className={`absolute -inset-1 rounded-xl bg-gradient-to-r ${item.gradient} opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500`}
-                />
-                <div className="relative z-10">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div
-                      className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center shadow-[0_0_28px_rgba(14,165,233,0.22)]`}
-                    >
-                      {item.Icon ? <item.Icon className="w-7 h-7 text-white" /> : null}
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-semibold text-foreground group-hover:gradient-text transition-all duration-300">
-                        {item.label}
-                      </h3>
-                      <p className="text-muted-foreground text-sm">Enterprise-ready modules</p>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-wrap gap-2">
-                    <span className="px-3 py-1 rounded-full text-xs font-medium border border-accent/20 text-foreground" style={{ background: 'var(--brand-green-soft)' }}>
-                      AI-ready
-                    </span>
-                    <span className="px-3 py-1 rounded-full text-xs font-medium border border-accent/20 text-foreground" style={{ background: 'var(--brand-red-soft)' }}>
-                      Secure delivery
-                    </span>
-                  </div>
-
-                  <div className="mt-5 h-2 rounded bg-border overflow-hidden">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      animate={isInView ? { width: '100%' } : {}}
-                      transition={{ delay: 0.2 + idx * 0.05, duration: 0.5, ease: 'easeOut' }}
-                      className={`h-full bg-gradient-to-r ${item.gradient} rounded`}
-                    />
-                  </div>
-                </div>
+              <div className="glass-card flex items-center gap-2 rounded-full">
+                <span className={`flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-br ${item.gradient}`}>
+                  {item.Icon ? <item.Icon className="h-3.5 w-3.5 text-white" /> : null}
+                </span>
+                <span className="text-sm font-semibold text-foreground">{item.label}</span>
               </div>
             </motion.div>
+            </ScrollReveal>
           ))}
         </div>
 
@@ -117,13 +81,13 @@ export function TechStackSection() {
           initial={{ opacity: 0, y: 14 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.2, duration: 0.5, ease: 'easeOut' }}
-          className="mt-10 flex justify-center"
+          className="mt-8 flex justify-center"
         >
           <a
             href="/solutions"
-            className="px-8 py-4 rounded-lg btn-premium text-primary-foreground text-lg font-medium shadow-[0_10px_24px_rgba(30,58,138,0.18)]"
+            className="rounded-lg px-5 py-3 text-sm font-semibold text-accent transition hover:text-primary"
           >
-            Learn More
+            Learn More -&gt;
           </a>
         </motion.div>
       </div>

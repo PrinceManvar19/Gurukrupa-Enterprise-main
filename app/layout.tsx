@@ -5,7 +5,7 @@ import { Analytics } from '@vercel/analytics/next'
 import { ThemeProvider } from '@/components/theme-provider'
 import Header from '@/components/layout/Header'
 import { Footer } from '@/components/sections/footer'
-import { ParticleField } from '@/components/particle-field'
+import { GeometricBackground } from '@/components/GeometricBackground'
 
 import './globals.css'
 
@@ -85,8 +85,8 @@ export default function RootLayout({
         </Script>
 
         <ThemeProvider>
-          <ParticleField />
-          <div className="relative z-[1]">
+          <GeometricBackground />
+          <div className="page-content relative z-[1]">
             <Header />
             {children}
             <Footer />

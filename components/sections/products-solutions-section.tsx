@@ -2,6 +2,7 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { ScrollReveal } from '@/components/ScrollReveal'
 import { ArrowRight, ExternalLink, FileSpreadsheet, Globe, Layers, MoreHorizontal, Shield, Sparkles, Workflow } from 'lucide-react'
 
 type Product = {
@@ -114,11 +115,8 @@ export function ProductsSolutionsSection({ mode = 'full' }: { mode?: ProductsMod
       <div className="absolute bottom-1/4 left-1/4 h-[360px] w-[360px] rounded-full bg-accent/10 blur-[140px]" />
 
       <div className={`container relative z-10 mx-auto px-6 ${isTeaser ? '' : 'flex min-h-0 flex-col'}`}>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-          className={isTeaser ? 'mx-auto mb-10 max-w-3xl text-center' : 'mx-auto mb-6 max-w-5xl text-center'}
+        <ScrollReveal direction="up" className={isTeaser ? 'mx-auto mb-10 max-w-3xl text-center' : 'mx-auto mb-6 max-w-5xl text-center'}>
+        <div
         >
           <span className={isTeaser ? 'mb-4 block text-sm font-medium uppercase tracking-wider text-accent' : 'mb-1 block text-xs font-medium uppercase tracking-wider text-accent'}>
             Products
@@ -129,7 +127,8 @@ export function ProductsSolutionsSection({ mode = 'full' }: { mode?: ProductsMod
           <p className={isTeaser ? 'text-lg leading-relaxed text-muted-foreground' : 'text-sm leading-snug text-muted-foreground'}>
             A focused product portfolio for AI chat, GST billing, lead follow-up, digital operations, ordering, and engagement.
           </p>
-        </motion.div>
+        </div>
+        </ScrollReveal>
 
         <div className={isTeaser ? 'grid gap-6 md:grid-cols-2 lg:grid-cols-3' : 'grid auto-rows-fr gap-4 md:grid-cols-2 lg:grid-cols-3'}>
           {visibleProducts.map((product, index) => {
@@ -142,8 +141,8 @@ export function ProductsSolutionsSection({ mode = 'full' }: { mode?: ProductsMod
 
             if (!isTeaser) {
               return (
+                <ScrollReveal key={product.name} delay={index * 0.1} direction="up">
                 <motion.div
-                  key={product.name}
                   initial={{ opacity: 0, y: 40 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: index * 0.1, duration: 0.5, ease: 'easeOut' }}
@@ -233,12 +232,13 @@ export function ProductsSolutionsSection({ mode = 'full' }: { mode?: ProductsMod
                     )}
                   </div>
                 </motion.div>
+                </ScrollReveal>
               )
             }
 
             return (
+              <ScrollReveal key={product.name} delay={index * 0.1} direction="up">
               <motion.a
-                key={product.name}
                 href={href}
                 target={product.url ? '_blank' : undefined}
                 rel={product.url ? 'noreferrer' : undefined}
@@ -271,6 +271,7 @@ export function ProductsSolutionsSection({ mode = 'full' }: { mode?: ProductsMod
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </div>
               </motion.a>
+              </ScrollReveal>
             )
           })}
         </div>
@@ -279,10 +280,10 @@ export function ProductsSolutionsSection({ mode = 'full' }: { mode?: ProductsMod
           <div className="mt-12 flex justify-center">
             <a
               href="/products"
-              className="inline-flex items-center justify-center rounded-lg btn-premium px-8 py-4 text-base font-semibold text-primary-foreground"
+              className="inline-flex items-center justify-center rounded-lg px-5 py-3 text-sm font-semibold text-accent transition hover:text-primary"
             >
-              Learn More
-              <ArrowRight className="ml-2 h-5 w-5" />
+              View All Products
+              <ArrowRight className="ml-2 h-4 w-4" />
             </a>
           </div>
         ) : null}

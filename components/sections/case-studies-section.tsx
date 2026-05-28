@@ -2,6 +2,7 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { ScrollReveal } from '@/components/ScrollReveal'
 
 const caseStudies = [
   {
@@ -27,9 +28,51 @@ const caseStudies = [
   },
 ]
 
-export function CaseStudiesSection() {
+type CaseStudiesMode = 'teaser' | 'full'
+
+export function CaseStudiesSection({ mode = 'full' }: { mode?: CaseStudiesMode }) {
   const sectionRef = useRef<HTMLElement>(null)
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' })
+  const isTeaser = mode === 'teaser'
+
+  if (isTeaser) {
+    return (
+      <section id="case-studies" ref={sectionRef} className="relative flex min-h-screen flex-col justify-center overflow-hidden py-16">
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/70 to-background" />
+        <div className="container relative z-10 mx-auto px-6">
+          <ScrollReveal direction="left" className="mx-auto mb-8 max-w-4xl text-center">
+            <span className="mb-3 block text-sm font-medium uppercase tracking-wider text-accent">Case Studies</span>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-5xl">
+              Outcomes from <span className="gradient-text">real builds.</span>
+            </h2>
+          </ScrollReveal>
+
+          <div className="mx-auto grid max-w-5xl gap-3">
+            {caseStudies.map((study, index) => (
+              <ScrollReveal key={study.title} delay={index * 0.15} direction="left">
+                <div className="flex flex-col gap-2 rounded-lg border border-accent/15 bg-card/60 px-4 py-3 text-sm backdrop-blur md:flex-row md:items-center">
+                  <span className="w-fit shrink-0 rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground">
+                    {study.product.split(' ')[0]}
+                  </span>
+                  <span className="font-semibold text-foreground">
+                    {study.title.replace('Centralized ERP for a multi-department service business', 'Centralized ERP for service business')}
+                  </span>
+                  <span className="hidden text-muted-foreground md:inline">-</span>
+                  <span className="text-muted-foreground">{study.metrics[0]}</span>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+
+          <div className="mt-8 flex justify-center">
+            <a href="/case-studies" className="rounded-lg px-5 py-3 text-sm font-semibold text-accent transition hover:text-primary">
+              View All Case Studies -&gt;
+            </a>
+          </div>
+        </div>
+      </section>
+    )
+  }
 
   return (
     <section id="case-studies" ref={sectionRef} className="relative flex min-h-screen flex-col justify-center overflow-hidden py-16">
@@ -39,12 +82,7 @@ export function CaseStudiesSection() {
       <div className="absolute inset-0 noise-overlay pointer-events-none" />
 
       <div className="container relative z-10 mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, x: -40 }}
-          animate={isInView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="mx-auto mb-10 max-w-4xl text-center"
-        >
+        <ScrollReveal direction="left" className="mx-auto mb-10 max-w-4xl text-center">
           <span className="mb-4 block text-sm font-medium uppercase tracking-wider text-accent">Case Studies</span>
           <h2 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
             Enterprise builds shown through <span className="gradient-text">outcomes.</span>
@@ -52,12 +90,12 @@ export function CaseStudiesSection() {
           <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-muted-foreground">
             A snapshot of how we approach workflow problems, software architecture, launch readiness, and operational improvement.
           </p>
-        </motion.div>
+        </ScrollReveal>
 
         <div className="grid gap-6 lg:grid-cols-3">
           {caseStudies.map((study, index) => (
+            <ScrollReveal key={study.title} delay={index * 0.15} direction="left">
             <motion.article
-              key={study.title}
               initial={{ opacity: 0, x: -40 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ delay: index * 0.15, duration: 0.5, ease: 'easeOut' }}
@@ -83,6 +121,7 @@ export function CaseStudiesSection() {
                 ))}
               </div>
             </motion.article>
+            </ScrollReveal>
           ))}
         </div>
       </div>

@@ -2,6 +2,7 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { ScrollReveal } from '@/components/ScrollReveal'
 import { Trophy, Star, Zap, Globe, Rocket, Shield } from 'lucide-react'
 
 const achievements = [
@@ -76,12 +77,7 @@ export function AchievementsSection({ mode = 'full' }: { mode?: AchievementsMode
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="mb-10 text-center"
-        >
+        <ScrollReveal direction="up" className="mb-10 text-center">
           <span className="text-sm text-accent font-medium tracking-wider uppercase mb-4 block">
             Our Journey
           </span>
@@ -93,42 +89,46 @@ export function AchievementsSection({ mode = 'full' }: { mode?: AchievementsMode
             A decade of excellence, innovation, and industry recognition that defines our 
             commitment to delivering extraordinary results.
           </p>
-        </motion.div>
+        </ScrollReveal>
 
         {/* Timeline */}
-        <div className="relative max-w-4xl mx-auto">
+        <div className={isTeaser ? 'homepage-achievements-row mx-auto max-w-6xl' : 'relative max-w-4xl mx-auto'}>
           {/* Timeline Line */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-accent to-primary md:-translate-x-px" />
+          {!isTeaser ? (
+            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-accent to-primary md:-translate-x-px" />
+          ) : null}
 
           {achievementsToRender.map((achievement, index) => (
+            <ScrollReveal key={achievement.year} delay={index * 0.15} direction="right">
             <motion.div
-              key={achievement.year}
               initial={{ opacity: 0, x: 40 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ delay: index * 0.15, duration: 0.5, ease: 'easeOut' }}
-              className={`relative flex items-center mb-12 ${
+              className={isTeaser ? 'relative' : `relative flex items-center mb-12 ${
                 index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
               }`}
             >
               {/* Timeline Node */}
-              <div className="absolute left-8 md:left-1/2 w-4 h-4 rounded-full bg-gradient-to-r from-primary to-accent -translate-x-1/2 z-10 ring-4 ring-background" />
+              {!isTeaser ? (
+                <div className="absolute left-8 md:left-1/2 w-4 h-4 rounded-full bg-gradient-to-r from-primary to-accent -translate-x-1/2 z-10 ring-4 ring-background" />
+              ) : null}
 
               {/* Content Card */}
-              <div className={`ml-16 md:ml-0 md:w-[calc(50%-40px)] ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
-                <div className="glass-card rounded-lg p-6 card-hover group relative overflow-hidden">
+              <div className={isTeaser ? '' : `ml-16 md:ml-0 md:w-[calc(50%-40px)] ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
+                <div className={isTeaser ? 'group relative' : 'glass-card rounded-lg p-6 card-hover group relative overflow-hidden'}>
                   {/* Gradient glow on hover */}
                   <div className={`absolute -inset-1 rounded-lg bg-gradient-to-r ${achievement.gradient} opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500`} />
                   
                   <div className="flex items-start gap-4 relative z-10">
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${achievement.gradient} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
-                      <achievement.icon className="w-6 h-6 text-white" />
+                    <div className={isTeaser ? 'shrink-0 rounded-full bg-primary px-3 py-1 text-xs font-bold text-primary-foreground' : `w-12 h-12 rounded-xl bg-gradient-to-br ${achievement.gradient} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
+                      {isTeaser ? achievement.year : <achievement.icon className="w-6 h-6 text-white" />}
                     </div>
                     <div>
-                      <span className="text-sm text-accent font-medium">{achievement.year}</span>
-                      <h3 className="text-xl font-semibold mt-1 mb-2 text-foreground group-hover:gradient-text transition-all duration-300">
+                      {!isTeaser ? <span className="text-sm text-accent font-medium">{achievement.year}</span> : null}
+                      <h3 className={isTeaser ? 'text-base font-semibold text-foreground' : 'text-xl font-semibold mt-1 mb-2 text-foreground group-hover:gradient-text transition-all duration-300'}>
                         {achievement.title}
                       </h3>
-                      <p className="text-muted-foreground text-sm leading-relaxed">
+                      <p className={isTeaser ? 'mt-1 line-clamp-1 text-sm text-muted-foreground' : 'text-muted-foreground text-sm leading-relaxed'}>
                         {achievement.description}
                       </p>
                     </div>
@@ -136,16 +136,17 @@ export function AchievementsSection({ mode = 'full' }: { mode?: AchievementsMode
                 </div>
               </div>
             </motion.div>
+            </ScrollReveal>
           ))}
         </div>
 
         {isTeaser ? (
-          <div className="mt-10 flex justify-center">
+          <div className="mt-8 flex justify-center">
             <a
               href="/achievements"
-              className="px-8 py-4 rounded-lg btn-premium text-primary-foreground text-lg font-medium shadow-[0_10px_24px_rgba(30,58,138,0.18)]"
+              className="rounded-lg px-5 py-3 text-sm font-semibold text-accent transition hover:text-primary"
             >
-              Learn More
+              Learn More -&gt;
             </a>
           </div>
         ) : null}

@@ -2,6 +2,8 @@
 
 import { SmoothScroll } from '@/components/smooth-scroll'
 import { HeroSection } from '@/components/sections/hero-section'
+import { PartnersSection } from '@/components/sections/partners-section'
+import { AboutSnippet } from '@/components/sections/about-snippet'
 import { ServicesSection } from '@/components/sections/services-section'
 
 import { AchievementsSection } from '@/components/sections/achievements-section'
@@ -18,13 +20,15 @@ import { TechStackSection } from '@/components/sections/tech-stack-section'
 export default function Home() {
   return (
     <SmoothScroll>
-      <main className="relative min-h-screen overflow-hidden">
+      <main className="homepage relative overflow-hidden">
         <HeroSection />
-        <ProductsSolutionsSection />
-        <CaseStudiesSection />
+        <PartnersSection mode="teaser" />
+        <AboutSnippet />
         <ServicesSection mode="teaser" />
+        <ProductsSolutionsSection mode="teaser" />
         <TechStackSection />
         <WhyChooseUsSection />
+        <CaseStudiesSection mode="teaser" />
         <AchievementsSection mode="teaser" />
         <TestimonialsSection mode="featured" />
         <CTASection />

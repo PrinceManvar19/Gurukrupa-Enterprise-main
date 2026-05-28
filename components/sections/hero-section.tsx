@@ -116,7 +116,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-[calc(100vh-64px)] flex-col justify-center overflow-hidden pb-10 pt-24"
+      className="hero-section relative flex flex-col justify-center overflow-hidden pb-10 pt-24"
     >
       <div className="absolute inset-0 gradient-mesh-bg" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(79,140,255,0.16),transparent_58%)]" />

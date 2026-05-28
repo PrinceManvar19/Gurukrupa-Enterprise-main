@@ -2,6 +2,7 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { ScrollReveal } from '@/components/ScrollReveal'
 import { ArrowRight, Sparkles } from 'lucide-react'
 
 export function CTASection() {
@@ -29,11 +30,11 @@ export function CTASection() {
       <div className="absolute inset-0 noise-overlay pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
+        <ScrollReveal direction="scale" className="max-w-4xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.97 }}
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="max-w-4xl mx-auto text-center"
         >
           {/* Badge */}
           <motion.div
@@ -51,7 +52,7 @@ export function CTASection() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.3, duration: 0.5, ease: 'easeOut' }}
-            className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 text-foreground"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground"
           >
             Let&apos;s Build{' '}
             <span className="gradient-text">Something</span>
@@ -78,26 +79,27 @@ export function CTASection() {
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <motion.a
-              href="#lead-inquiry"
+              href="/contact"
               className="group px-8 py-4 rounded-lg btn-premium text-white font-medium text-lg relative overflow-hidden inline-flex items-center justify-center gap-2 neon-glow"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="relative z-10">Start a Conversation</span>
+              <span className="relative z-10">Start a Project</span>
               <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" />
             </motion.a>
             
             <motion.a
-              href="#about"
+              href="mailto:hello@gurukrupaenterprise.com"
               className="px-8 py-4 rounded-lg glass-card text-foreground font-medium text-lg hover:border-accent/50 transition-all duration-300 inline-flex items-center justify-center"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Learn More About Us
+              hello@gurukrupaenterprise.com
             </motion.a>
           </motion.div>
 
         </motion.div>
+        </ScrollReveal>
       </div>
     </section>
   )

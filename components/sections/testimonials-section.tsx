@@ -2,6 +2,7 @@
 
 import { useRef, useState, useEffect } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
+import { ScrollReveal } from '@/components/ScrollReveal'
 import { Quote, ChevronLeft, ChevronRight, Star } from 'lucide-react'
 
 const testimonials = [
@@ -91,58 +92,41 @@ export function TestimonialsSection({ mode = 'full' }: { mode?: TestimonialsMode
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="mb-10 text-center"
-        >
+        <ScrollReveal direction="up" className={isFeatured ? 'mb-6 text-center' : 'mb-10 text-center'}>
           <span className="text-sm text-accent font-medium tracking-wider uppercase mb-4 block">
             Testimonials
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground">
+          <h2 className={isFeatured ? 'mb-4 text-3xl font-bold text-foreground md:text-5xl' : 'text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground'}>
             What Our <span className="gradient-text">Clients Say</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-3xl mx-auto leading-relaxed">
+          <p className={isFeatured ? 'hidden' : 'text-muted-foreground text-lg max-w-3xl mx-auto leading-relaxed'}>
             Hear from the industry leaders and innovators who have partnered with us to achieve extraordinary results.
           </p>
-        </motion.div>
+        </ScrollReveal>
 
         <div className="max-w-4xl mx-auto">
           <div className="relative">
             {isFeatured ? (
+              <ScrollReveal direction="scale">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5 }}
-                className="glass-card rounded-lg p-8 md:p-12 relative overflow-hidden"
+                className="mx-auto max-w-3xl rounded-lg border border-accent/15 bg-card/55 p-6 text-center backdrop-blur md:p-8"
               >
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-accent to-primary" />
-
-                <div className="absolute top-8 right-8 md:top-12 md:right-12">
-                  <Quote className="w-12 h-12 text-accent/20" />
-                </div>
-
-                <div className="flex gap-1 mb-6">
-                  {Array.from({ length: featuredTestimonial.rating }).map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-accent text-accent" />
-                  ))}
-                </div>
-
-                <blockquote className="text-xl md:text-2xl lg:text-3xl font-medium leading-relaxed mb-8 text-foreground">
+                <Quote className="mx-auto mb-4 h-8 w-8 text-accent/30" />
+                <blockquote className="mb-5 text-lg font-medium leading-relaxed text-foreground md:text-2xl">
                   "{featuredTestimonial.content}"
                 </blockquote>
 
-                <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-xl font-bold text-white">
-                    {featuredTestimonial.name.charAt(0)}
-                  </div>
+                <div>
                   <div>
-                    <div className="font-semibold text-lg text-foreground">{featuredTestimonial.name}</div>
-                    <div className="text-muted-foreground">{featuredTestimonial.role}</div>
+                    <div className="font-semibold text-foreground">{featuredTestimonial.name}</div>
+                    <div className="text-sm text-muted-foreground">{featuredTestimonial.role}</div>
                   </div>
                 </div>
               </motion.div>
+              </ScrollReveal>
             ) : (
               <>
                 <AnimatePresence mode="wait">

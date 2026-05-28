@@ -2,6 +2,7 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { ScrollReveal } from '@/components/ScrollReveal'
 import { Shield, Zap, Cloud, Users } from 'lucide-react'
 
 const bullets = [
@@ -57,11 +58,8 @@ export function WhyChooseUsSection() {
       <div className="absolute inset-0 noise-overlay pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="mb-10 text-center"
+        <ScrollReveal direction="up" className="mb-10 text-center">
+        <div
         >
           <span className="text-sm text-accent font-medium tracking-wider uppercase mb-4 block">Why Gurukrupa</span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground">
@@ -70,33 +68,33 @@ export function WhyChooseUsSection() {
           <p className="text-muted-foreground text-lg max-w-3xl mx-auto leading-relaxed">
             A premium delivery model that combines engineering excellence with ongoing support—so your systems keep improving after go-live.
           </p>
-        </motion.div>
+        </div>
+        </ScrollReveal>
 
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-          {bullets.map((b, idx) => (
+          {bullets.slice(0, 4).map((b, idx) => (
+            <ScrollReveal key={b.title} delay={idx * 0.1} direction="up" className="group">
             <motion.div
-              key={b.title}
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: idx * 0.1, duration: 0.5, ease: 'easeOut' }}
-              className="group"
             >
-              <div className="glass-card rounded-xl p-7 h-full card-hover relative overflow-hidden">
+              <div className="glass-card rounded-xl p-4 h-full card-hover relative overflow-hidden">
                 <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r ${b.gradient} blur-2xl`} />
                 <div className="relative z-10">
-                  <div className="flex items-start gap-4 mb-4">
+                  <div className="flex items-start gap-3">
                     <div
-                      className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${b.gradient} flex items-center justify-center shadow-[0_0_28px_rgba(14,165,233,0.22)]`}
+                      className={`w-11 h-11 shrink-0 rounded-xl bg-gradient-to-br ${b.gradient} flex items-center justify-center shadow-[0_0_28px_rgba(14,165,233,0.22)]`}
                     >
-                      <b.icon className="w-7 h-7 text-white" />
+                      <b.icon className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <h3 className="text-xl md:text-2xl font-semibold text-foreground">{b.title}</h3>
-                      <p className="text-muted-foreground mt-2 leading-relaxed text-sm md:text-base">{b.description}</p>
+                      <h3 className="text-base font-semibold text-foreground">{b.title}</h3>
+                      <p className="text-muted-foreground mt-1 text-[13px] leading-snug">{b.description}</p>
                     </div>
                   </div>
 
-                  <div className="mt-5 flex flex-wrap gap-2">
+                  <div className="hidden">
                     <span
                       className="px-3 py-1 rounded-full text-xs font-medium border border-accent/20 text-foreground"
                       style={{ background: 'var(--brand-green-soft)' }}
@@ -113,6 +111,7 @@ export function WhyChooseUsSection() {
                 </div>
               </div>
             </motion.div>
+            </ScrollReveal>
           ))}
         </div>
 
@@ -120,13 +119,13 @@ export function WhyChooseUsSection() {
           initial={{ opacity: 0, y: 16 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.35, duration: 0.5, ease: 'easeOut' }}
-          className="mt-12 text-center"
+          className="mt-8 text-center"
         >
           <a
-            href="/contact"
-            className="inline-flex items-center justify-center px-10 py-4 rounded-lg btn-premium text-primary-foreground text-lg font-medium neon-glow"
+            href="/about"
+            className="inline-flex items-center justify-center rounded-lg px-5 py-3 text-sm font-semibold text-accent transition hover:text-primary"
           >
-            Talk to our enterprise team
+            Learn More -&gt;
           </a>
         </motion.div>
       </div>

@@ -47,8 +47,8 @@ const deliveryHighlights: { title: string; icon: LucideIcon; text: string }[] = 
 export function SolutionsPage() {
   return (
     <main className="relative min-h-screen overflow-hidden pt-28">
-      <section className="relative overflow-hidden bg-[#0a1628] py-24 text-white">
-        <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(26,86,219,0.34),transparent_45%),linear-gradient(45deg,transparent,rgba(14,165,233,0.2))]" />
+      <section className="relative overflow-hidden bg-transparent py-24 text-[#0B1628]">
+        <div className="absolute inset-0 bg-white/55 backdrop-blur-[1px]" />
         <div className="container relative z-10 mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -56,18 +56,18 @@ export function SolutionsPage() {
             transition={{ duration: 0.7 }}
             className="mx-auto max-w-4xl text-center"
           >
-            <span className="mb-4 inline-flex rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-sky-100 backdrop-blur">
+            <span className="mb-4 inline-flex rounded-full border border-accent/20 bg-white/60 px-4 py-2 text-sm font-semibold text-accent backdrop-blur">
               Digital Transformation Solutions
             </span>
             <h1 className="text-5xl font-black tracking-tight md:text-7xl">Build the right software, with the right service.</h1>
-            <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-300">
+            <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-700">
               Gurukrupa Enterprise delivers mobile and web solutions through SWAS: Software WITH a Service. We do not just hand over code; we help launch, improve, and support the system.
             </p>
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
               <a href="/contact" className="inline-flex items-center justify-center rounded-lg bg-[#1a56db] px-7 py-4 font-bold text-white hover:bg-[#2563eb]">
                 Discuss a Solution <ArrowRight className="ml-2 h-5 w-5" />
               </a>
-              <a href="/services" className="inline-flex items-center justify-center rounded-lg border border-white/20 bg-white/10 px-7 py-4 font-bold text-white hover:bg-white/15">
+              <a href="/services" className="inline-flex items-center justify-center rounded-lg border border-accent/25 bg-white/65 px-7 py-4 font-bold text-[#0B1628] hover:bg-white/80">
                 View Services
               </a>
             </div>

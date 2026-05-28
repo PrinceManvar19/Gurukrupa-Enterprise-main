@@ -1,6 +1,7 @@
 'use client'
 
 import { motion, useInView } from 'framer-motion'
+import { ScrollReveal } from '@/components/ScrollReveal'
 import { useRef } from 'react'
 
 export function AboutSnippet() {
@@ -10,12 +11,7 @@ export function AboutSnippet() {
   return (
     <section ref={sectionRef} className="relative py-16 md:py-24">
       <div className="container mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="max-w-3xl text-center mx-auto"
-        >
+        <ScrollReveal direction="up" className="max-w-3xl text-center mx-auto">
           <span className="text-sm text-accent font-medium tracking-wider uppercase mb-4 block">
             About Us
           </span>
@@ -37,7 +33,7 @@ export function AboutSnippet() {
               Learn More
             </motion.a>
           </div>
-        </motion.div>
+        </ScrollReveal>
       </div>
     </section>
   )

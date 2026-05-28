@@ -2,6 +2,7 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { ScrollReveal } from '@/components/ScrollReveal'
 import { Code2, Palette, LineChart, Shield, Cpu, Cloud, Zap } from 'lucide-react'
 
 const services = [
@@ -119,11 +120,8 @@ export function ServicesSection({ mode = 'full' }: { mode?: ServicesMode }) {
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="mb-10 text-center"
+        <ScrollReveal direction="up" className="mb-10 text-center">
+        <div
         >
           <span className="text-sm text-accent font-medium tracking-wider uppercase mb-4 block">
             What We Do
@@ -136,19 +134,19 @@ export function ServicesSection({ mode = 'full' }: { mode?: ServicesMode }) {
             We offer a comprehensive suite of services designed to transform your business 
             and drive sustainable growth in the digital landscape.
           </p>
-        </motion.div>
+        </div>
+        </ScrollReveal>
 
         {/* Services Grid */}
         <div className={`grid ${isTeaser ? 'md:grid-cols-2 lg:grid-cols-4' : 'md:grid-cols-2 lg:grid-cols-3'} gap-6`}>
           {servicesToRender.map((service, index) => (
+            <ScrollReveal key={service.title} delay={index * 0.1} direction="scale" className="group">
             <motion.div
-              key={service.title}
               initial={{ opacity: 0, scale: 0.95 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ delay: index * 0.1, duration: 0.5, ease: 'easeOut' }}
-              className="group"
             >
-              <div className="glass-card rounded-lg p-8 h-full card-hover relative overflow-hidden">
+              <div className={`glass-card rounded-lg h-full card-hover relative overflow-hidden ${isTeaser ? 'p-4' : 'p-8'}`}>
                 {/* Animated Gradient Border */}
                 <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
                   <div className={`absolute inset-0 bg-gradient-to-r ${service.gradient} opacity-20`} />
@@ -159,15 +157,15 @@ export function ServicesSection({ mode = 'full' }: { mode?: ServicesMode }) {
 
                 <div className="relative z-10">
                   {/* Icon */}
-                  <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                    <service.icon className="w-8 h-8 text-white" />
+                  <div className={`rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center group-hover:scale-110 transition-transform duration-300 ${isTeaser ? 'mb-4 h-11 w-11' : 'mb-6 h-16 w-16'}`}>
+                    <service.icon className={isTeaser ? 'h-5 w-5 text-white' : 'w-8 h-8 text-white'} />
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-2xl font-semibold mb-3 text-foreground group-hover:gradient-text transition-all duration-300">
+                  <h3 className={isTeaser ? 'mb-2 text-base font-semibold text-foreground group-hover:gradient-text transition-all duration-300' : 'text-2xl font-semibold mb-3 text-foreground group-hover:gradient-text transition-all duration-300'}>
                     {service.title}
                   </h3>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                  <p className={isTeaser ? 'text-[13px] leading-snug text-muted-foreground' : 'text-muted-foreground mb-6 leading-relaxed'}>
                     {service.description}
                   </p>
 
@@ -188,6 +186,7 @@ export function ServicesSection({ mode = 'full' }: { mode?: ServicesMode }) {
                 </div>
               </div>
             </motion.div>
+            </ScrollReveal>
           ))}
         </div>
 
@@ -196,9 +195,9 @@ export function ServicesSection({ mode = 'full' }: { mode?: ServicesMode }) {
           <div className="mt-10 flex justify-center">
             <a
               href="/services"
-              className="px-8 py-4 rounded-lg btn-premium text-primary-foreground text-lg font-medium shadow-[0_10px_24px_rgba(30,58,138,0.18)]"
+              className="inline-flex items-center rounded-lg px-5 py-3 text-sm font-semibold text-accent transition hover:text-primary"
             >
-              Learn More
+              View All Services -&gt;
             </a>
           </div>
         )}

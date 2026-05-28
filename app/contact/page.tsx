@@ -26,30 +26,30 @@ const contactCards = [
 export default function ContactPage() {
   return (
     <main className="relative min-h-screen overflow-hidden pt-28">
-      <section className="relative overflow-hidden bg-[#0a1628] py-24 text-white">
-        <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(26,86,219,0.34),transparent_45%),linear-gradient(45deg,transparent,rgba(14,165,233,0.22))]" />
+      <section className="relative overflow-hidden bg-transparent py-24 text-[#0B1628]">
+        <div className="absolute inset-0 bg-white/55 backdrop-blur-[1px]" />
         <div className="container relative z-10 mx-auto px-6">
           <div className="grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
             <div>
-              <span className="mb-5 inline-flex rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-sky-100 backdrop-blur">
+              <span className="mb-5 inline-flex rounded-full border border-accent/20 bg-white/60 px-4 py-2 text-sm font-semibold text-accent backdrop-blur">
                 Contact Gurukrupa Enterprise
               </span>
               <h1 className="max-w-4xl text-5xl font-black leading-tight tracking-tight md:text-7xl">
                 Let&apos;s turn your requirement into a clear build plan.
               </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-700">
                 Reach out for digital products, full-stack development, SWAS delivery, automation, mobile apps, web apps, AI agents, and enterprise systems.
               </p>
             </div>
 
-            <div className="rounded-lg border border-white/10 bg-white/10 p-6 shadow-2xl shadow-black/25 backdrop-blur">
+            <div className="rounded-lg border border-accent/15 bg-white/65 p-6 shadow-2xl shadow-slate-900/10 backdrop-blur">
               <div className="mb-5 flex items-center gap-3">
                 <div className="grid h-12 w-12 place-items-center rounded-xl bg-gradient-to-br from-[#1a56db] to-[#0ea5e9]">
                   <MessageSquareText className="h-6 w-6 text-white" />
                 </div>
                 <div>
                   <div className="font-bold">Response Flow</div>
-                  <div className="text-sm text-slate-400">Inquiry to consultation</div>
+                  <div className="text-sm text-slate-600">Inquiry to consultation</div>
                 </div>
               </div>
               <div className="grid gap-3">
@@ -58,8 +58,8 @@ export default function ContactPage() {
                   ['2', 'We review fit, scope, and urgency'],
                   ['3', 'You receive the next practical step'],
                 ].map(([step, text]) => (
-                  <div key={step} className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/8 p-4 text-sm text-slate-200">
-                    <span className="grid h-7 w-7 shrink-0 place-items-center rounded-md bg-sky-400/15 font-black text-sky-200">{step}</span>
+                  <div key={step} className="flex items-center gap-3 rounded-lg border border-accent/15 bg-white/60 p-4 text-sm text-slate-700">
+                    <span className="grid h-7 w-7 shrink-0 place-items-center rounded-md bg-sky-400/15 font-black text-accent">{step}</span>
                     {text}
                   </div>
                 ))}

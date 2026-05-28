@@ -245,6 +245,195 @@
   }
 }
 
+.homepage {
+  background: transparent;
+}
+
+.geometric-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+main,
+main > section,
+.page-content {
+  position: relative;
+  z-index: 1;
+}
+
+main,
+main > section {
+  background-color: transparent;
+}
+
+section > .absolute.inset-0[class*='bg-gradient-to-b'],
+section > .gradient-mesh-bg,
+section > .bg-radial-gradient {
+  background: transparent !important;
+}
+
+.homepage > section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 60px 60px;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: transparent;
+  border-top: 1px solid rgba(99, 146, 234, 0.15);
+}
+
+.homepage > section:first-child {
+  border-top: 0;
+}
+
+.homepage > .hero-section {
+  height: 100vh;
+  min-height: 100vh;
+  padding-top: 64px;
+  overflow: hidden;
+}
+
+.homepage > section > .container {
+  width: 100%;
+}
+
+.homepage > section h2 {
+  font-size: clamp(2rem, 4vw, 3.75rem);
+  line-height: 1.05;
+}
+
+.homepage #partners .container {
+  max-height: 40vh;
+}
+
+.homepage #partners [data-partners-description],
+.homepage #partners [data-partners-cta] {
+  display: none;
+}
+
+.homepage #partners .grid {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.homepage #partners .glass-card {
+  padding: 14px;
+}
+
+.homepage #products .grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.homepage #products .grid > * > * {
+  padding: 18px;
+}
+
+.homepage #products p {
+  font-size: 13px;
+}
+
+.homepage #services .grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.homepage #services .glass-card {
+  padding: 18px;
+}
+
+.homepage #services h3 {
+  font-size: 1.05rem;
+}
+
+.homepage #services p {
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.homepage #tech-stack .grid {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.homepage #tech-stack .glass-card {
+  height: 36px;
+  min-width: max-content;
+  border-radius: 20px;
+  border: 1px solid #e5ebf5;
+  padding: 0 14px;
+  box-shadow: none;
+}
+
+.homepage #why-choose-us .grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.homepage #why-choose-us .glass-card {
+  padding: 18px;
+}
+
+.homepage #why-choose-us h3 {
+  font-size: 1.05rem;
+}
+
+.homepage #why-choose-us p {
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+@media (min-width: 768px) {
+  .homepage #achievements .homepage-achievements-row {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px;
+  }
+}
+
+@media (max-width: 767px) {
+  .homepage > section {
+    padding: 76px 18px 28px;
+  }
+
+  .homepage #partners .grid,
+  .homepage #products .grid,
+  .homepage #services .grid,
+  .homepage #why-choose-us .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .homepage #tech-stack .grid {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scroll-snap-type: x mandatory;
+  }
+
+  .homepage #tech-stack .grid > * {
+    min-width: 78vw;
+    scroll-snap-align: start;
+  }
+}
+
 
 /* Brand Gradient Mesh Background */
 .gradient-mesh-bg {
