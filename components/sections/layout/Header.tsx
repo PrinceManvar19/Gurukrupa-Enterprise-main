@@ -110,7 +110,7 @@ export default function Header() {
                     src={headerDarkLogo}
                     alt="Gurukrupa Enterprise"
                     priority
-                    className="brand-logo-image brand-logo-image-single h-[38px] w-auto object-contain sm:h-[46px] lg:h-[50px]"
+                    className="brand-logo-image brand-logo-image-single h-9.5 w-auto object-contain sm:h-11.5 lg:h-12.5"
                   />
                 </span>
                 <span className="sr-only">Gurukrupa Enterprise</span>
@@ -153,7 +153,7 @@ export default function Header() {
                           }}
                         />
                         <span
-                          className="absolute -bottom-0.5 left-3 right-3 h-[2px] rounded-full bg-gradient-to-r from-primary to-accent"
+                          className="absolute -bottom-0.5 left-3 right-3 h-0.5 rounded-full bg-linear-to-r from-primary to-accent"
                           style={{
                             opacity: active ? 1 : 0,
                             transform: active ? 'scaleX(1)' : 'scaleX(0.2)',

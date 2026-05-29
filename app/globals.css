@@ -425,7 +425,7 @@ section > .bg-radial-gradient {
 }
 
 .homepage #partners .container {
-  max-height: 40vh;
+  max-height: none;
 }
 
 .homepage #partners [data-partners-description],
@@ -433,13 +433,28 @@ section > .bg-radial-gradient {
   display: none;
 }
 
-.homepage #partners .grid {
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+.homepage #partners .partners-industry-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
 }
 
-.homepage #partners .glass-card {
-  padding: 14px;
+.partners-marquee {
+  animation: partners-marquee 24s linear infinite;
+  padding-left: 1rem;
+}
+
+.partners-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes partners-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .homepage #products .products-app-grid {
@@ -472,8 +487,7 @@ section > .bg-radial-gradient {
   line-height: 1.45;
 }
 
-.homepage #tech-stack .tech-bento-heading,
-.homepage #achievements .journey-heading {
+.homepage #tech-stack .tech-bento-heading {
   font-size: clamp(24px, 3vw, 36px);
   line-height: 1.12;
 }
@@ -681,6 +695,23 @@ section > .bg-radial-gradient {
   color: #6b7280;
   font-size: 13px;
   line-height: 1.6;
+}
+
+.modern-journey-line {
+  background: linear-gradient(180deg, #1a56db, #06b6d4, #1a56db);
+  background-size: 100% 220%;
+  box-shadow: 0 0 22px rgba(14, 165, 233, 0.36);
+  animation: journey-line-flow 5s linear infinite;
+}
+
+@keyframes journey-line-flow {
+  0% {
+    background-position: 50% 0%;
+  }
+
+  100% {
+    background-position: 50% 220%;
+  }
 }
 
 @media (max-width: 767px) {

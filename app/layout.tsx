@@ -3,7 +3,7 @@ import Script from 'next/script'
 import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { ThemeProvider } from '@/components/theme-provider'
-import Header from '@/components/layout/Header'
+import Header from '@/components/sections/layout/Header'
 import { Footer } from '@/components/sections/footer'
 import { GeometricBackground } from '@/components/GeometricBackground'
 
@@ -86,7 +86,7 @@ export default function RootLayout({
 
         <ThemeProvider>
           <GeometricBackground />
-          <div className="page-content relative z-[1]">
+          <div className="page-content relative z-1">
             <Header />
             {children}
             <Footer />
