@@ -42,7 +42,7 @@ const caseStudies = [
 
 export default function CaseStudiesPage() {
   return (
-    <main className="relative min-h-screen overflow-hidden pt-28">
+    <main className="innerpage relative min-h-screen overflow-hidden pt-28">
       <section className="relative overflow-hidden py-20">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/70 to-background" />
         <div className="absolute right-1/4 top-20 h-[380px] w-[380px] rounded-full bg-primary/10 blur-[140px]" />
@@ -51,7 +51,7 @@ export default function CaseStudiesPage() {
         <div className="container relative z-10 mx-auto px-6">
           <div className="mx-auto mb-14 max-w-4xl text-center">
             <span className="mb-4 block text-sm font-medium uppercase tracking-wider text-accent">Case Studies</span>
-            <h1 className="text-4xl font-bold tracking-tight text-foreground md:text-6xl">
+            <h1 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
               Enterprise builds shown through <span className="gradient-text">outcomes, not hype.</span>
             </h1>
             <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-muted-foreground">

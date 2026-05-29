@@ -1,5 +1,9 @@
 import { TestimonialsSection } from '@/components/sections/testimonials-section'
 
 export default function TestimonialsPage() {
-  return <TestimonialsSection mode="full" />
+  return (
+    <main className="innerpage">
+      <TestimonialsSection mode="full" />
+    </main>
+  )
 }

@@ -40,7 +40,7 @@ export function AchievementsSection({ mode = 'full' }: { mode?: AchievementsMode
     <section
       id="achievements"
       ref={sectionRef}
-      className={`journey-timeline-section relative flex min-h-screen flex-col justify-center overflow-hidden bg-[#f6f8fb] py-16 ${
+      className={`journey-timeline-section relative flex min-h-screen flex-col justify-center overflow-hidden bg-[var(--bg-main)] py-16 ${
         isTeaser ? '' : 'scroll-mt-28'
       }`}
     >
@@ -59,11 +59,11 @@ export function AchievementsSection({ mode = 'full' }: { mode?: AchievementsMode
           <span className="mb-3 block text-sm font-semibold uppercase tracking-[0.28em] text-cyan-500">
             OUR JOURNEY
           </span>
-          <h2 className="journey-heading text-4xl font-bold leading-tight text-slate-950 md:text-5xl lg:text-6xl">
+          <h2 className="journey-heading text-4xl font-bold leading-tight text-[var(--text-primary)] md:text-5xl lg:text-6xl">
             Company <span className="gradient-text">Milestones</span>
           </h2>
           {!isTeaser ? (
-            <p className="mx-auto mt-5 max-w-[600px] text-lg leading-relaxed text-slate-600">
+            <p className="mx-auto mt-5 max-w-[600px] text-lg leading-relaxed text-[var(--text-secondary)]">
               A practical journey of products shipped, workflows automated, and SWAS delivery improved for business teams.
             </p>
           ) : null}
@@ -85,7 +85,7 @@ export function AchievementsSection({ mode = 'full' }: { mode?: AchievementsMode
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ delay: index * 0.16, duration: 0.45, ease: 'easeOut' }}
-                className="absolute left-0 top-5 z-10 flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-[0_0_0_8px_rgba(14,165,233,0.10),0_0_34px_rgba(26,86,219,0.32)] md:left-1/2 md:top-1/2 md:h-20 md:w-20 md:-translate-x-1/2 md:-translate-y-1/2"
+                className="absolute left-0 top-5 z-10 flex h-14 w-14 items-center justify-center rounded-full bg-[var(--card-bg)] shadow-[0_0_0_8px_rgba(14,165,233,0.10),0_0_34px_rgba(26,86,219,0.32)] md:left-1/2 md:top-1/2 md:h-20 md:w-20 md:-translate-x-1/2 md:-translate-y-1/2"
               >
                 <span className="rounded-full bg-linear-to-br from-[#1A56DB] to-[#06B6D4] bg-clip-text text-lg font-black text-transparent md:text-2xl">
                   {achievement.year}
@@ -102,7 +102,7 @@ export function AchievementsSection({ mode = 'full' }: { mode?: AchievementsMode
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                 whileHover={{ y: -6, scale: 1.02 }}
                 transition={{ delay: index * 0.14, duration: 0.5, ease: 'easeOut' }}
-                className={`milestone-card group relative rounded-2xl border border-slate-100 bg-white p-6 shadow-[0_14px_40px_rgba(15,23,42,0.08)] transition-shadow duration-300 hover:shadow-[0_22px_60px_rgba(26,86,219,0.18)] ${
+                className={`milestone-card group relative rounded-2xl border border-[var(--border-color)] bg-[var(--card-bg)] p-6 shadow-[0_14px_40px_rgba(15,23,42,0.08)] transition-shadow duration-300 hover:shadow-[0_22px_60px_rgba(26,86,219,0.18)] ${
                   index % 2 === 0 ? 'md:text-right' : ''
                 }`}
               >
@@ -112,13 +112,13 @@ export function AchievementsSection({ mode = 'full' }: { mode?: AchievementsMode
                   }`}
                 />
                 <span
-                  className={`absolute top-[27px] hidden h-3 w-3 rotate-45 border-t border-r border-cyan-400 bg-white md:block ${
+                  className={`absolute top-[27px] hidden h-3 w-3 rotate-45 border-t border-r border-cyan-400 bg-[var(--card-bg)] md:block ${
                     index % 2 === 0 ? '-right-[38px]' : '-left-[38px] rotate-[225deg]'
                   }`}
                 />
 
                 <div className={`mb-4 flex items-center gap-3 ${index % 2 === 0 ? 'md:justify-end' : ''}`}>
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#eef7ff] text-2xl shadow-inner">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--bg-section)] text-2xl shadow-inner">
                     {achievement.icon}
                   </span>
                   <span className="bg-linear-to-r from-[#1A56DB] to-[#06B6D4] bg-clip-text text-2xl font-black text-transparent">
@@ -126,9 +126,9 @@ export function AchievementsSection({ mode = 'full' }: { mode?: AchievementsMode
                   </span>
                 </div>
 
-                <h3 className="text-xl font-bold leading-tight text-slate-950 md:text-2xl">{achievement.title}</h3>
+                <h3 className="text-xl font-bold leading-tight text-[var(--text-primary)] md:text-2xl">{achievement.title}</h3>
 
-                <ul className="mt-4 space-y-3 text-sm leading-relaxed text-slate-600">
+                <ul className="mt-4 space-y-3 text-sm leading-relaxed text-[var(--text-secondary)]">
                   {achievement.bullets.map((bullet) => (
                     <li key={bullet} className={`flex gap-2 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
                       <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#1A56DB]" />
@@ -138,7 +138,7 @@ export function AchievementsSection({ mode = 'full' }: { mode?: AchievementsMode
                 </ul>
 
                 <div className={`mt-5 flex ${index % 2 === 0 ? 'md:justify-end' : ''}`}>
-                  <span className="rounded-full border border-cyan-200 bg-cyan-50 px-3 py-1 text-xs font-bold text-[#1A56DB]">
+                  <span className="rounded-full border border-[var(--border-color)] bg-[var(--bg-section)] px-3 py-1 text-xs font-bold text-[#1A56DB]">
                     {achievement.tag}
                   </span>
                 </div>

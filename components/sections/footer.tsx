@@ -14,7 +14,6 @@ const quickLinks = [
   { name: 'Solutions', href: '/solutions' },
   { name: 'About', href: '/about' },
   { name: 'Achievements', href: '/achievements' },
-  { name: 'Partners', href: '/partners' },
   { name: 'Contact', href: '/contact' },
 ]
 
@@ -61,7 +60,7 @@ export function Footer() {
 
         <p className="mx-auto mb-14 max-w-2xl text-center text-sm leading-relaxed text-muted-foreground md:text-base">
           Building trust through innovation. We deliver cutting-edge solutions
-          that transform businesses and create lasting partnerships.
+          that transform businesses and support long-term growth.
         </p>
 
         {/* Main Footer Content */}

@@ -6,6 +6,7 @@ import { ThemeProvider } from '@/components/theme-provider'
 import Header from '@/components/sections/layout/Header'
 import { Footer } from '@/components/sections/footer'
 import { GeometricBackground } from '@/components/GeometricBackground'
+import { WhatsAppButton } from '@/components/whatsapp-button'
 
 import './globals.css'
 
@@ -17,9 +18,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'Gurukrupa Enterprise | Digital Products & Scalable Tech Solutions',
   description:
-    'Gurukrupa Enterprise builds digital products and scalable technology solutions with hands-on service and long-term partnership.',
+    'Gurukrupa Enterprise builds digital products and scalable technology solutions with hands-on service and long-term support.',
   generator: 'v0.app',
-  keywords: ['innovation', 'technology', 'enterprise', 'solutions', 'partnerships'],
+  keywords: ['innovation', 'technology', 'enterprise', 'solutions', 'software'],
   authors: [{ name: 'Gurukrupa Enterprise' }],
   manifest: '/site.webmanifest',
   icons: {
@@ -90,6 +91,7 @@ export default function RootLayout({
             <Header />
             {children}
             <Footer />
+            <WhatsAppButton />
           </div>
         </ThemeProvider>
 

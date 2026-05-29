@@ -60,7 +60,7 @@ export function StatsBar() {
               transition={{ delay: idx * 0.1, duration: 0.6 }}
               className="glass-card rounded-lg p-6 text-center card-hover"
             >
-              <div className="text-4xl md:text-5xl font-bold mb-2">
+              <div className="text-3xl md:text-4xl font-bold mb-2">
                 <AnimatedCounter value={stat.value} suffix={stat.suffix} />
               </div>
               <p className="text-muted-foreground text-sm md:text-base">{stat.label}</p>

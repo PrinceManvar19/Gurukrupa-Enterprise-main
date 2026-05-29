@@ -47,8 +47,8 @@ const deliveryHighlights: { title: string; icon: LucideIcon; text: string }[] = 
 export function SolutionsPage() {
   return (
     <main className="relative min-h-screen overflow-hidden pt-28">
-      <section className="relative overflow-hidden bg-transparent py-24 text-[#0B1628]">
-        <div className="absolute inset-0 bg-white/55 backdrop-blur-[1px]" />
+      <section className="relative overflow-hidden bg-transparent py-24">
+        <div className="absolute inset-0 bg-[var(--bg-section)]/40 backdrop-blur-[1px]" />
         <div className="container relative z-10 mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -56,18 +56,18 @@ export function SolutionsPage() {
             transition={{ duration: 0.7 }}
             className="mx-auto max-w-4xl text-center"
           >
-            <span className="mb-4 inline-flex rounded-full border border-accent/20 bg-white/60 px-4 py-2 text-sm font-semibold text-accent backdrop-blur">
+            <span className="mb-4 inline-flex rounded-full border border-accent/20 bg-[var(--card-bg)]/70 px-4 py-2 text-sm font-semibold text-accent backdrop-blur">
               Digital Transformation Solutions
             </span>
-            <h1 className="text-5xl font-black tracking-tight md:text-7xl">Build the right software, with the right service.</h1>
-            <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-700">
+            <h1 className="text-4xl font-black tracking-tight text-foreground md:text-5xl">Build the right software, with the right service.</h1>
+            <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-[var(--text-secondary)]">
               Gurukrupa Enterprise delivers mobile and web solutions through SWAS: Software WITH a Service. We do not just hand over code; we help launch, improve, and support the system.
             </p>
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
               <a href="/contact" className="inline-flex items-center justify-center rounded-lg bg-[#1a56db] px-7 py-4 font-bold text-white hover:bg-[#2563eb]">
                 Discuss a Solution <ArrowRight className="ml-2 h-5 w-5" />
               </a>
-              <a href="/services" className="inline-flex items-center justify-center rounded-lg border border-accent/25 bg-white/65 px-7 py-4 font-bold text-[#0B1628] hover:bg-white/80">
+              <a href="/services" className="inline-flex items-center justify-center rounded-lg border border-accent/25 bg-[var(--card-bg)]/70 px-7 py-4 font-bold text-[var(--text-primary)] hover:bg-[var(--card-bg)]/85">
                 View Services
               </a>
             </div>
@@ -85,7 +85,7 @@ export function SolutionsPage() {
                 Software WITH a <span className="gradient-text">Service</span>
               </h2>
               <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-                SWAS combines product engineering with hands-on service, so your software is planned, launched, supported, and improved with a long-term delivery partner.
+                SWAS combines product engineering with hands-on service, so your software is planned, launched, supported, and improved through a long-term delivery model.
               </p>
             </div>
             <div className="glass-card rounded-lg p-7">
@@ -141,13 +141,13 @@ export function SolutionsPage() {
         </div>
       </section>
 
-      <section className="relative bg-[#0a1628] py-20 text-white">
+      <section className="relative bg-[var(--bg-section)] py-20 text-[var(--text-primary)]">
         <div className="container mx-auto grid gap-6 px-6 md:grid-cols-3">
           {deliveryHighlights.map(({ title, icon: Icon, text }) => (
-            <div key={title} className="rounded-lg border border-white/10 bg-white/8 p-6">
+            <div key={title} className="rounded-lg border border-[var(--border-color)] bg-[var(--card-bg)]/70 p-6">
               <Icon className="h-7 w-7 text-[#0ea5e9]" />
               <h3 className="mt-5 text-xl font-bold">{title}</h3>
-              <p className="mt-3 text-sm leading-6 text-slate-300">{text}</p>
+              <p className="mt-3 text-sm leading-6 text-[var(--text-secondary)]">{text}</p>
             </div>
           ))}
         </div>

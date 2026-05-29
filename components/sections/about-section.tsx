@@ -31,7 +31,7 @@ const values = [
   {
     icon: Users,
     title: 'Client-Centric',
-    description: 'Your success is our priority. We build lasting partnerships based on trust and results.',
+    description: 'Your success is our priority. We build dependable systems based on trust and results.',
     gradient: 'from-primary to-accent',
   },
   {

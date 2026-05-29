@@ -202,7 +202,7 @@ export function HeroSection() {
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">SWAS model</p>
                 <h2 className="hero-swas-title mt-2 font-semibold text-foreground">
-                  From software delivery to operating partnership.
+                  From software delivery to managed operations.
                 </h2>
               </div>
               <CheckCircle2 className="hidden h-8 w-8 text-accent sm:block" />
