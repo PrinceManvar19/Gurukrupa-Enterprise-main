@@ -85,12 +85,12 @@ export function CTASection() {
             </motion.a>
             
             <motion.a
-              href="mailto:hello@gurukrupaenterprise.com"
+              href="mailto:gurukrupaenterprise247@gmail.com"
               className="px-8 py-4 rounded-lg glass-card text-foreground font-medium text-lg hover:border-accent/50 transition-all duration-300 inline-flex items-center justify-center"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              hello@gurukrupaenterprise.com
+              gurukrupaenterprise247@gmail.com
             </motion.a>
           </motion.div>
 

@@ -101,8 +101,8 @@ export function Footer() {
                 <Mail className="w-5 h-5 text-accent mt-0.5" />
                 <div>
                   <p className="text-sm text-muted-foreground">Email</p>
-                  <a href="mailto:hello@gurukrupaenterprise.com" className="text-sm text-foreground hover:text-accent transition-colors">
-                    hello@gurukrupaenterprise.com
+                  <a href="mailto:gurukrupaenterprise247@gmail.com" className="text-sm text-foreground hover:text-accent transition-colors">
+                    gurukrupaenterprise247@gmail.com
                   </a>
                 </div>
               </li>

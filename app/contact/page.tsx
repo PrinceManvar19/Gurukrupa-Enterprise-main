@@ -5,8 +5,8 @@ import { LeadInquiryForm } from '@/components/sections/lead-inquiry-form'
 const contactCards = [
   {
     label: 'Email',
-    value: 'hello@gurukrupaenterprise.com',
-    href: 'mailto:hello@gurukrupaenterprise.com',
+    value: 'gurukrupaenterprise247@gmail.com',
+    href: 'mailto:gurukrupaenterprise247@gmail.com',
     icon: Mail,
   },
   {

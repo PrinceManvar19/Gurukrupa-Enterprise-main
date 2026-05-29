@@ -28,10 +28,10 @@ export function ContactStrip() {
                 <span className="text-sm text-muted-foreground">Email</span>
               </div>
               <a
-                href="mailto:hello@gurukrupaenterprise.com"
+                href="mailto:gurukrupaenterprise247@gmail.com"
                 className="text-foreground hover:gradient-text transition-all duration-300 text-sm md:text-base break-words"
               >
-                hello@gurukrupaenterprise.com
+                gurukrupaenterprise247@gmail.com
               </a>
             </motion.div>
 
